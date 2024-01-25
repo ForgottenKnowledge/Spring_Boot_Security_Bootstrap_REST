@@ -19,6 +19,6 @@ public class UserRestController {
 
     @GetMapping()
     public User getUserByName(Principal principal) {
-        return userService.getUserName(principal.getName());
+        return userService.getUserByName(principal.getName());
     }
 }

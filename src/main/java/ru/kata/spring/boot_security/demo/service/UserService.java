@@ -15,7 +15,7 @@ public interface UserService {
 
     void deleteUser(Long id);
 
-    User getUserName(String name);
+    User getUserByName(String name);
 
     void saveNewUser(User user, Set<Role> roles);
 }
