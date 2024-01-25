@@ -11,11 +11,11 @@ const renderUsers = (users) => {
                     <td>${user.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN')}</td> 
               <td> 
                    <button type="button" data-userid="${user.id}" data-action="edit" class="btn btn-info" 
-                    data-toggle="modal" data-target="modal" id="edit-user" data-id="${user.id}">Edit</button> 
+                    data-toggle="modal" data-target="modal" id="edit-user" data-id="${user.id}">Редактировать</button> 
                </td> 
                <td> 
                    <button type="button" class="btn btn-danger" id="delete-user" data-action="delete" 
-                   data-id="${user.id}" data-target="modal">Delete</button> 
+                   data-id="${user.id}" data-target="modal">Удалить</button> 
                     </td> 
               </tr>`
         })
@@ -168,7 +168,7 @@ on(document, 'click', '#delete-user', e => {
     $("#modalDelete").modal("show")
 })
 
-//Навигационня панель
+//Навигационная панель
 
 const url3 = 'http://localhost:8080/rest/user'
 let loggedUserHeaderElem = document.querySelector('#navBarAdmin')
@@ -177,7 +177,7 @@ fetch(url3)
     .then(res => res.json())
     .then(data => {
         loggedUserHeaderElem.innerHTML = `<span class="align-middle font-weight-bold mr-1">${data.name}  </span></b> 
-                <span class="align-middle mr-1"> with roles:  </span> 
+                <span class="align-middle mr-1"> с ролями:  </span> 
                 <span>  ${data.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN')}</span>`;
     })
 
