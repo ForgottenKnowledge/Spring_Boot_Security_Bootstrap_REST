@@ -5,7 +5,7 @@ const renderUsers = (users) => {
               <tr> 
                     <td>${user.id}</td> 
                     <td>${user.name}</td> 
-                    <td>${user.lastName}</td> 
+                    <td>${user.surname}</td> 
                     <td>${user.age}</td> 
                     <td>${user.phone}</td>
                     <td>${user.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN')}</td> 
@@ -50,7 +50,7 @@ fetch(url, {mode: 'cors'})
 
 const addUserForm = document.querySelector('#addUser')
 const addName = document.getElementById('name3')
-const addLastName = document.getElementById('lastName3')
+const addSurname = document.getElementById('surname3')
 const addAge = document.getElementById('age3')
 const addPhone = document.getElementById('phone3')
 const addPassword = document.getElementById('password3')
@@ -65,7 +65,7 @@ addUserForm.addEventListener('submit', (e) => {
         },
         body: JSON.stringify({
             name: addName.value,
-            lastName: addLastName.value,
+            surname: addSurname.value,
             age: addAge.value,
             phone:addPhone.value,
             password: addPassword.value,
@@ -98,7 +98,7 @@ on(document, 'click', '#edit-user', e => {
     const userInfo = e.target.parentNode.parentNode
     document.getElementById('id0').value = userInfo.children[0].innerHTML
     document.getElementById('name0').value = userInfo.children[1].innerHTML
-    document.getElementById('lastName0').value = userInfo.children[2].innerHTML
+    document.getElementById('surname0').value = userInfo.children[2].innerHTML
     document.getElementById('age0').value = userInfo.children[3].innerHTML
     document.getElementById('phone0').value = userInfo.children[4].innerHTML
     document.getElementById('roles0').value = userInfo.children[5].innerHTML
@@ -118,7 +118,7 @@ editUserForm.addEventListener('submit', (e) => {
         body: JSON.stringify({
             id: document.getElementById('id0').value,
             name: document.getElementById('name0').value,
-            lastName: document.getElementById('lastName0').value,
+            surname: document.getElementById('surname0').value,
             age: document.getElementById('age0').value,
             phone: document.getElementById('phone0').value,
             password: document.getElementById('password0').value,
@@ -160,7 +160,7 @@ on(document, 'click', '#delete-user', e => {
 
     document.getElementById('id2').value = fila2.children[0].innerHTML
     document.getElementById('name2').value = fila2.children[1].innerHTML
-    document.getElementById('lastName2').value = fila2.children[2].innerHTML
+    document.getElementById('surname2').value = fila2.children[2].innerHTML
     document.getElementById('age2').value = fila2.children[3].innerHTML
     document.getElementById('phone2').value = fila2.children[4].innerHTML
     document.getElementById('roles2').value = fila2.children[5].innerHTML

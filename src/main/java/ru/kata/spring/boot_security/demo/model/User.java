@@ -34,8 +34,8 @@ public class User implements UserDetails {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "lastName")
-    private String lastName;
+    @Column(name = "surname")
+    private String surname;
 
     @Column(name = "age")
     private Integer age;
@@ -53,9 +53,9 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String lastName, Integer age, Integer phone, String password, Set<Role> roles) {
+    public User(String name, String surname, Integer age, Integer phone, String password, Set<Role> roles) {
         this.name = name;
-        this.lastName = lastName;
+        this.surname = surname;
         this.age = age;
         this.phone = phone;
         this.password = password;

@@ -13,7 +13,7 @@ fetch(url)
         loggedInUser.innerHTML = `
                                 <td>${data.id}</td>
                                 <td>${data.name}</td>
-                                <td>${data.lastName}</td>
+                                <td>${data.surname}</td>
                                 <td>${data.age}</td>
                                 <td>${data.phone}</td>
                                 <td>${data.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN')}</td>
