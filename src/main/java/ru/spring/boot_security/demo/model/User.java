@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.model;
+package ru.spring.boot_security.demo.model;
 
 
 import lombok.EqualsAndHashCode;
@@ -41,7 +41,7 @@ public class User implements UserDetails {
     private Integer age;
 
     @Column(name = "phone")
-    private Integer phone;
+    private Long phone;
 
     @NotEmpty
     @Column(name = "password")
@@ -53,7 +53,7 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String surname, Integer age, Integer phone, String password, Set<Role> roles) {
+    public User(String name, String surname, Integer age, Long phone, String password, Set<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.age = age;

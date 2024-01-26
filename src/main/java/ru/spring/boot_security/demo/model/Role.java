@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.model;
+package ru.spring.boot_security.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -35,9 +35,9 @@ public class Role implements GrantedAuthority {
     public Role() {
     }
 
-    public Role(Long id, String role_user) {
+    public Role(Long id, String name) {
         this.id = id;
-        this.name = role_user;
+        this.name = name;
     }
 
     public Role(Long id) {
