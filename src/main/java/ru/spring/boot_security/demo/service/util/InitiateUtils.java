@@ -38,6 +38,9 @@ public class InitiateUtils implements CommandLineRunner { //имплементи
     public void run(String... args) throws Exception {
         createRoles();
         createUsersWithRoles();
+
+        LOGGER.info("Добавление в БД пользователя с ролью \"Администратор\" c login=1, password = 1 завершено");
+        LOGGER.info("Добавление в БД пользователя с ролью \"Пользователь\" c login=2, password = 2 завершено");
     }
 
     /**
@@ -53,6 +56,7 @@ public class InitiateUtils implements CommandLineRunner { //имплементи
         Role userRole = new Role();
         userRole.setName("ROLE_USER");
         entityManager.persist(userRole);
+
         LOGGER.info("Роли созданы");
     }
 
@@ -60,23 +64,14 @@ public class InitiateUtils implements CommandLineRunner { //имплементи
      * Создание пользователей в БД
      */
     private void createUsersWithRoles() {
-        User admin = new User();
-        admin.setName("1");
-        admin.setSurname("1");
-        admin.setPassword("1");
-        admin.setAge(1);
-        admin.setPhone(1L);
+        User admin = new User("1", "1", 1, 1L, "1");
         //Добавление в БД пользователя с ролью "Администратор" c login=1, password = 1
         userService.saveNewUser(admin, roleService.findRoles(new ArrayList<>(Arrays.asList(1L))));
 
-        User user = new User();
-        user.setName("2");
-        user.setSurname("2");
-        user.setPassword("2");
-        user.setAge(2);
-        user.setPhone(2L);
+        User user = new User("2", "2", 2, 2L, "2");
         //Добавление в БД пользователя с ролью "Пользователь" c login=2, password = 2
         userService.saveNewUser(user, roleService.findRoles(new ArrayList<>(Arrays.asList(2L))));
+
         LOGGER.info("Пользователи созданы");
     }
 }
