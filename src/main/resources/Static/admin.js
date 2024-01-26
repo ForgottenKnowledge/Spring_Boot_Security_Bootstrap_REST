@@ -8,7 +8,7 @@ const renderUsers = (users) => {
                     <td>${user.surname}</td> 
                     <td>${user.age}</td> 
                     <td>${user.phone}</td>
-                    <td>${user.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN')}</td> 
+                    <td>${user.roles.map(role => role.name === 'ROLE_USER' ? 'Пользователь' : 'Администратор')}</td> 
               <td> 
                    <button type="button" data-userid="${user.id}" data-action="edit" class="btn btn-info" 
                     data-toggle="modal" data-target="modal" id="edit-user" data-id="${user.id}">Редактировать</button> 
@@ -178,6 +178,6 @@ fetch(url3)
     .then(data => {
         loggedUserHeaderElem.innerHTML = `<span class="align-middle font-weight-bold mr-1">${data.name}  </span></b> 
                 <span class="align-middle mr-1"> с ролями:  </span> 
-                <span>  ${data.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN')}</span>`;
+                <span>  ${data.roles.map(role => role.name === 'ROLE_USER' ? 'Пользователь' : 'Администратор')}</span>`;
     })
 
